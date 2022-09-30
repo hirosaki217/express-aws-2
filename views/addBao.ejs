@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>add bao</title>
+        <style>
+            .container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .container input {
+                margin-bottom: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <form action="/" id="create" method="POST" enctype="multipart/form-data">
+                <p style="font-style: italic; color: red"><%=error.ten_bao ? error.ten_bao : ''%></p>
+                <input
+                    type="text"
+                    placeholder="tên báo"
+                    name="ten_bao"
+                    value="<%=payload.ten_bao ? payload.ten_bao : '' %>"
+                />
+                <p style="font-style: italic; color: red"><%=error.ISBN ? error.ISBN : ''%></p>
+                <input type="text" placeholder="ISBN" name="ISBN" value="<%=payload.ISBN ? payload.ISBN : '' %>" />
+                <p style="font-style: italic; color: red"><%=error.nam_sx ? error.nam_sx : ''%></p>
+                <input
+                    type="text"
+                    placeholder="năm sx"
+                    name="nam_sx"
+                    value="<%=payload.nam_sx ? payload.nam_sx : '' %>"
+                />
+                <p style="font-style: italic; color: red"><%=error.so_trang ? error.so_trang : ''%></p>
+                <input
+                    type="number"
+                    min="1"
+                    placeholder="số trang"
+                    name="so_trang"
+                    value="<%=payload.so_trang ? payload.so_trang : '' %>"
+                />
+                <p style="font-style: italic; color: red"><%=error.ten_nhom_tg ? error.ten_nhom_tg : ''%></p>
+                <input
+                    type="text"
+                    placeholder="tên nhóm tác giả"
+                    name="ten_nhom_tg"
+                    value="<%=payload.ten_nhom_tg ? payload.ten_nhom_tg : '' %>"
+                />
+                <input style="cursor: pointer" type="submit" value="lưu" />
+            </form>
+        </div>
+    </body>
+</html>

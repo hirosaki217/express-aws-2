@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bao</title>
+    </head>
+    <body>
+        <form action="/delete" id="delete" method="POST" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <th>STT</th>
+                    <th>tên báo</th>
+                    <th>ISBN</th>
+                    <th>năm sx</th>
+                    <th>số trang</th>
+                    <th>tên nhóm tác giả</th>
+                    <th>chọn</th>
+                </tr>
+                <% for (let i = 0; i < dsBao.length; i++) { %>
+                <tr>
+                    <td><%= i %></td>
+                    <td><%= dsBao[i].ten_bao %></td>
+                    <td><%= dsBao[i].ISBN %></td>
+                    <td><%= dsBao[i].nam_sx %></td>
+                    <td><%= dsBao[i].so_trang %></td>
+                    <td><%= dsBao[i].ten_nhom_tg %></td>
+                    <td>
+                        <input type="checkbox" name="<%= dsBao[i].ma_bao %>" />
+                    </td>
+                </tr>
+                <%}%>
+            </table>
+
+            <input type="submit" value="Xóa" />
+            <button id="btnAdd">Thêm mới</button>
+        </form>
+        <script>
+            document.getElementById('btnAdd').addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location = '/addBao';
+            });
+        </script>
+    </body>
+</html>
