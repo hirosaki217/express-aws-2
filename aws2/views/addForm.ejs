@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <form action="/" method="POST" enctype="multipart/form-data" onsubmit="return onSubmit()" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div class="form-group">
+
+            <span style="color: red; font-style: italic;" id="errten"></span>
+            <br/>
+            <input id="ten" type="text" name="ten" placeholder="name">
+        </div>
+        <div class="form-group">
+
+            <span style="color: red; font-style: italic;" id="errlop"></span>
+            <br/>
+            <input id="lop" type="text" name="lop" placeholder="lop">
+        </div>
+        <br/>
+        <input type="submit" value="luu" class="btn btn-success">
+    </form>
+    <script>
+        const errTen = document.getElementById('errten')
+        const errLop = document.getElementById('errlop')
+        const ten = document.getElementById('ten')
+        const lop = document.getElementById('lop')
+
+        function onSubmit() {
+            let t = ten.value.trim();
+            let l = lop.value.trim();
+            errTen.innerText = "";
+            errLop.innerText = "";
+            if (t.length <= 0) {
+                errTen.innerText = "ten khong dc de trong"
+                return false
+            }
+            if (l.length <= 0) {
+                errLop.innerText = "ten khong dc de trong"
+                return false
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
